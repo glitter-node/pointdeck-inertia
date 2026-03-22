@@ -1,4 +1,4 @@
-# Sprint Planning Poker (Inertia)
+# Realtime Planning Poker (Inertia)
 
 ## Overview
 
