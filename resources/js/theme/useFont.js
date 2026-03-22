@@ -2,7 +2,7 @@ import { createContext, createElement, useContext, useEffect, useMemo, useState 
 import { fontOrder } from './fonts';
 
 const STORAGE_KEY = 'font';
-const DEFAULT_FONT = 'mono';
+const DEFAULT_FONT = 'sans';
 const FontContext = createContext(null);
 
 function normalizeFont(value) {

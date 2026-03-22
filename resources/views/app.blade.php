@@ -36,7 +36,7 @@
                     const validFonts = ['mono', 'sans', 'serif', 'system'];
                     document.documentElement.dataset.font = validFonts.includes(storedFont)
                         ? storedFont
-                        : 'mono';
+                        : 'sans';
 
                     const storedContrast = localStorage.getItem('contrast');
                     const validContrasts = ['normal', 'high'];
@@ -51,7 +51,7 @@
                         : 'normal';
                 } catch (error) {
                     document.documentElement.dataset.theme = 'light';
-                    document.documentElement.dataset.font = 'mono';
+                    document.documentElement.dataset.font = 'sans';
                     document.documentElement.dataset.contrast = 'normal';
                     document.documentElement.dataset.size = 'normal';
                 }

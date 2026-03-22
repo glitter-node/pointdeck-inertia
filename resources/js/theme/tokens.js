@@ -50,14 +50,18 @@ export const themeLabels = {
 
 function createThemeTokens(base, target = 4.5) {
     const generated = generateTheme(base);
+    const isHighContrast = target >= 7;
+    const secondarySource = isHighContrast ? base.text : base.muted;
+    const borderSource = isHighContrast ? base.text : base.border;
+    const accentContrastTarget = isHighContrast ? 7 : 4.5;
 
     return {
         ...generated,
         '--theme-text-primary-rgb': rgbToCss(getAccessibleColor(base.text, base.background, target)),
-        '--theme-text-secondary-rgb': rgbToCss(getAccessibleColor(base.muted, base.background, target)),
-        '--theme-border-rgb': rgbToCss(getAccessibleColor(base.border, base.surface, target)),
+        '--theme-text-secondary-rgb': rgbToCss(getAccessibleColor(secondarySource, base.background, target)),
+        '--theme-border-rgb': rgbToCss(getAccessibleColor(borderSource, base.surface, target)),
         '--theme-accent-rgb': rgbToCss(hexToRgb(base.accent)),
-        '--theme-accent-contrast-rgb': rgbToCss(getAccessibleColor(base.accentContrast, base.accent, 4.5)),
+        '--theme-accent-contrast-rgb': rgbToCss(getAccessibleColor(base.accentContrast, base.accent, accentContrastTarget)),
         '--theme-success-rgb': rgbToCss(hexToRgb(base.success)),
         '--theme-danger-rgb': rgbToCss(hexToRgb(base.danger)),
         '--theme-overlay-rgb': rgbToCss(hexToRgb(base.overlay)),
