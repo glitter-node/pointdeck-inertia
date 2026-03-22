@@ -1,7 +1,5 @@
-import AccessibilityToggle from '@/Components/AccessibilityToggle';
 import ApplicationLogo from '@/Components/ApplicationLogo';
-import FontToggle from '@/Components/FontToggle';
-import ThemeToggle from '@/Components/ThemeToggle';
+import PreferenceControls from '@/Components/PreferenceControls';
 import { Link } from '@inertiajs/react';
 
 export default function GuestLayout({ children }) {
@@ -22,11 +20,7 @@ export default function GuestLayout({ children }) {
                         </Link>
                     </div>
 
-                    <div className="flex flex-wrap justify-end gap-3">
-                        <AccessibilityToggle />
-                        <FontToggle />
-                        <ThemeToggle />
-                    </div>
+                    <PreferenceControls />
                 </nav>
             </header>
 

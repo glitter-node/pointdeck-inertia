@@ -1,6 +1,4 @@
-import AccessibilityToggle from '@/Components/AccessibilityToggle';
-import FontToggle from '@/Components/FontToggle';
-import ThemeToggle from '@/Components/ThemeToggle';
+import PreferenceControls from '@/Components/PreferenceControls';
 import { Head, Link } from '@inertiajs/react';
 
 function FeatureCard({ title, description }) {
@@ -50,11 +48,7 @@ export default function Landing() {
                                 </Link>
                             </div>
 
-                            <div className="flex flex-wrap gap-3">
-                                <AccessibilityToggle />
-                                <FontToggle />
-                                <ThemeToggle />
-                            </div>
+                            <PreferenceControls />
                         </nav>
 
                         <section className="theme-card p-8 md:p-12">

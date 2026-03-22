@@ -156,6 +156,8 @@
 
     .theme-btn-primary {
         @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-theme-bg disabled:cursor-not-allowed disabled:opacity-60;
+        box-sizing: border-box;
+        line-height: 1.2;
         background-color: rgb(var(--theme-accent-rgb, 37,99,235));
         color: rgb(var(--theme-accent-contrast-rgb, 255,255,255));
     }
@@ -170,6 +172,8 @@
 
     .theme-btn-secondary {
         @apply inline-flex items-center justify-center rounded-xl border px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-theme-bg disabled:cursor-not-allowed disabled:opacity-60;
+        box-sizing: border-box;
+        line-height: 1.2;
         border-color: rgb(var(--theme-border-rgb, 156,163,175));
         background-color: color-mix(in srgb, rgb(var(--theme-surface-rgb, 248,250,252)) 90%, rgb(var(--theme-bg-rgb, 255,255,255)));
         color: rgb(var(--theme-text-primary-rgb, 17,24,39));
@@ -185,6 +189,8 @@
 
     .theme-btn-danger {
         @apply inline-flex items-center justify-center rounded-xl border px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-theme-bg disabled:cursor-not-allowed disabled:opacity-60;
+        box-sizing: border-box;
+        line-height: 1.2;
         border-color: rgb(var(--theme-danger-rgb, 185,28,28) / 0.65);
         background-color: color-mix(in srgb, rgb(var(--theme-danger-rgb, 185,28,28)) 12%, rgb(var(--theme-surface-rgb, 248,250,252)));
         color: rgb(var(--theme-danger-rgb, 185,28,28));
@@ -222,6 +228,65 @@
     .theme-nav {
         @apply border-b border-theme-border backdrop-blur;
         background-color: color-mix(in srgb, rgb(var(--theme-surface-rgb, 248,250,252)) 92%, rgb(var(--theme-bg-rgb, 255,255,255)));
+    }
+
+    .theme-control-group {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .theme-control-group > * {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .theme-control-button {
+        min-height: 2.75rem;
+        padding: 0.625rem 0.875rem;
+        gap: 0.625rem;
+        flex: 1 1 auto;
+        flex-shrink: 1;
+        min-width: 0;
+        max-width: 100%;
+        vertical-align: middle;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .theme-control-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1rem;
+        height: 1rem;
+        flex-shrink: 0;
+        color: rgb(var(--theme-text-secondary-rgb, 75,85,99));
+    }
+
+    .theme-control-icon svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .theme-control-badge {
+        @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold;
+        flex-shrink: 0;
+        max-width: 100%;
+        background-color: color-mix(in srgb, rgb(var(--theme-accent-rgb, 37,99,235)) 78%, rgb(var(--theme-overlay-rgb, 2,6,23)));
+        color: rgb(var(--theme-accent-contrast-rgb, 255,255,255));
+    }
+
+    .theme-control-label {
+        flex: 1 1 auto;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: rgb(var(--theme-text-secondary-rgb, 75,85,99));
     }
 
     .theme-modal-scrim {

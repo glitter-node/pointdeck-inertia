@@ -1,6 +1,4 @@
-import AccessibilityToggle from '@/Components/AccessibilityToggle';
-import FontToggle from '@/Components/FontToggle';
-import ThemeToggle from '@/Components/ThemeToggle';
+import PreferenceControls from '@/Components/PreferenceControls';
 import { Head, Link, router } from '@inertiajs/react';
 
 export default function Expired({
@@ -43,11 +41,7 @@ export default function Expired({
                                 </Link>
                             </div>
 
-                            <div className="flex flex-wrap justify-end gap-3">
-                                <AccessibilityToggle />
-                                <FontToggle />
-                                <ThemeToggle />
-                            </div>
+                            <PreferenceControls />
                         </nav>
                     </header>
 

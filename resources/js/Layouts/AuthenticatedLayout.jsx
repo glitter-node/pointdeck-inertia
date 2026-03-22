@@ -1,10 +1,8 @@
-import AccessibilityToggle from '@/Components/AccessibilityToggle';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
-import FontToggle from '@/Components/FontToggle';
 import NavLink from '@/Components/NavLink';
+import PreferenceControls from '@/Components/PreferenceControls';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
-import ThemeToggle from '@/Components/ThemeToggle';
 import { Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 
@@ -47,10 +45,8 @@ export default function AuthenticatedLayout({ header, children }) {
                             </div>
                         </div>
 
-                        <div className="hidden sm:ms-6 sm:flex sm:items-center">
-                            <AccessibilityToggle className="me-3" />
-                            <FontToggle className="me-3" />
-                            <ThemeToggle className="me-3" />
+                        <div className="hidden min-w-0 sm:ms-6 sm:flex sm:items-center">
+                            <PreferenceControls />
 
                             <div className="relative ms-3">
                                 <Dropdown>
@@ -91,10 +87,8 @@ export default function AuthenticatedLayout({ header, children }) {
                             </div>
                         </div>
 
-                        <div className="-me-2 flex items-center sm:hidden">
-                            <AccessibilityToggle className="me-2" />
-                            <FontToggle className="me-2" />
-                            <ThemeToggle className="me-2" />
+                        <div className="-me-2 flex min-w-0 items-center sm:hidden">
+                            <PreferenceControls />
 
                             <button
                                 onClick={() =>

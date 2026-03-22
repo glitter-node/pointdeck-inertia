@@ -1,6 +1,4 @@
-import AccessibilityToggle from '@/Components/AccessibilityToggle';
-import FontToggle from '@/Components/FontToggle';
-import ThemeToggle from '@/Components/ThemeToggle';
+import PreferenceControls from '@/Components/PreferenceControls';
 import useConnection from '@/hooks/useConnection';
 import Expired from '@/Pages/Room/Expired';
 import { Head, router, useForm } from '@inertiajs/react';
@@ -307,14 +305,7 @@ export default function ShowPage({
                             </div>
 
                             <div className="flex flex-col items-start gap-3 lg:items-end">
-                                <nav
-                                    aria-label="Primary navigation"
-                                    className="flex flex-wrap gap-3"
-                                >
-                                    <AccessibilityToggle />
-                                    <FontToggle />
-                                    <ThemeToggle />
-                                </nav>
+                                <PreferenceControls as="nav" aria-label="Primary navigation" />
 
                                 <div className="theme-card-muted rounded-xl px-4 py-3 text-sm">
                                     <div>
