@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --theme-bg-rgb: 255,255,255;
+        --theme-surface-rgb: 248,250,252;
+        --theme-text-primary-rgb: 17,24,39;
+        --theme-text-secondary-rgb: 75,85,99;
+        --theme-border-rgb: 156,163,175;
+        --theme-accent-rgb: 37,99,235;
+        --theme-accent-contrast-rgb: 255,255,255;
+        --theme-success-rgb: 21,128,61;
+        --theme-danger-rgb: 185,28,28;
+        --theme-overlay-rgb: 2,6,23;
+        --font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        --text-scale: 1;
+    }
+
+    [data-theme='light'] {
+        /* dynamically applied */
+    }
+
+    [data-theme='dark'] {
+        /* dynamically applied */
+    }
+
+    [data-font='mono'] {
+        --font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    [data-font='sans'] {
+        --font-family: Inter, ui-sans-serif, system-ui;
+    }
+
+    [data-font='serif'] {
+        --font-family: Georgia, ui-serif, serif;
+    }
+
+    [data-font='system'] {
+        --font-family: system-ui, -apple-system, BlinkMacSystemFont;
+    }
+
+    [data-size='large'] {
+        --text-scale: 1.125;
+    }
+
+    [data-contrast='high'] {
+        /* dynamically applied */
+    }
+
+    html {
+        background-color: rgb(var(--theme-bg-rgb, 255,255,255));
+    }
+
+    body {
+        @apply min-h-screen bg-theme-bg font-base text-theme-primary antialiased;
+        font-size: calc(1rem * var(--text-scale));
+        background: rgb(var(--theme-bg-rgb, 255,255,255));
+        color: rgb(var(--theme-text-primary-rgb, 17,24,39));
+    }
+
+    :focus-visible {
+        outline: 2px solid rgb(var(--theme-accent-rgb, 37,99,235));
+        outline-offset: 2px;
+    }
+
+    ::selection {
+        background-color: rgb(var(--theme-accent-rgb, 37,99,235) / 0.3);
+        color: rgb(var(--theme-text-primary-rgb, 17,24,39));
+    }
+}
+
+@layer components {
+    .skip-link {
+        @apply sr-only fixed left-4 top-4 z-[100] rounded-lg px-4 py-2 font-semibold;
+        background-color: rgb(var(--theme-surface-rgb, 248,250,252));
+        color: rgb(var(--theme-text-primary-rgb, 17,24,39));
+    }
+
+    .skip-link:focus {
+        @apply not-sr-only;
+    }
+
+    .theme-page {
+        @apply min-h-screen bg-theme-bg font-base text-theme-primary;
+    }
+
+    .theme-card {
+        @apply rounded-2xl border border-theme-border bg-theme-surface text-theme-primary shadow-sm;
+    }
+
+    .theme-card-muted {
+        @apply rounded-2xl border border-theme-border text-theme-primary;
+        background-color: color-mix(in srgb, rgb(var(--theme-bg-rgb, 255,255,255)) 72%, rgb(var(--theme-surface-rgb, 248,250,252)));
+    }
+
+    .theme-heading {
+        @apply text-theme-primary;
+    }
+
+    .theme-subtle {
+        color: rgb(var(--theme-text-secondary-rgb, 75,85,99));
+    }
+
+    .theme-label {
+        @apply block text-sm font-medium;
+        color: rgb(var(--theme-text-secondary-rgb, 75,85,99));
+    }
+
+    .theme-link {
+        @apply rounded-sm underline underline-offset-4 transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-theme-bg;
+        color: rgb(var(--theme-accent-rgb, 37,99,235));
+    }
+
+    .theme-link:hover {
+        color: color-mix(in srgb, rgb(var(--theme-accent-rgb, 37,99,235)) 86%, rgb(var(--theme-text-primary-rgb, 17,24,39)));
+    }
+
+    .theme-link:focus {
+        --tw-ring-color: rgb(var(--theme-accent-rgb, 37,99,235) / 0.3);
+    }
+
+    .theme-input {
+        @apply block w-full rounded-xl border px-4 py-3 shadow-sm transition focus:outline-none focus:ring-2;
+        border-color: rgb(var(--theme-border-rgb, 156,163,175));
+        background-color: rgb(var(--theme-surface-rgb, 248,250,252));
+        color: rgb(var(--theme-text-primary-rgb, 17,24,39));
+    }
+
+    .theme-input::placeholder {
+        color: rgb(var(--theme-text-secondary-rgb, 75,85,99));
+    }
+
+    .theme-input:focus {
+        border-color: rgb(var(--theme-accent-rgb, 37,99,235));
+        --tw-ring-color: rgb(var(--theme-accent-rgb, 37,99,235) / 0.25);
+    }
+
+    .theme-checkbox {
+        @apply rounded border shadow-sm;
+        border-color: rgb(var(--theme-border-rgb, 156,163,175));
+        background-color: rgb(var(--theme-surface-rgb, 248,250,252));
+        color: rgb(var(--theme-accent-rgb, 37,99,235));
+    }
+
+    .theme-checkbox:focus {
+        --tw-ring-color: rgb(var(--theme-accent-rgb, 37,99,235) / 0.3);
+    }
+
+    .theme-btn-primary {
+        @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-theme-bg disabled:cursor-not-allowed disabled:opacity-60;
+        background-color: rgb(var(--theme-accent-rgb, 37,99,235));
+        color: rgb(var(--theme-accent-contrast-rgb, 255,255,255));
+    }
+
+    .theme-btn-primary:hover {
+        background-color: color-mix(in srgb, rgb(var(--theme-accent-rgb, 37,99,235)) 90%, rgb(var(--theme-overlay-rgb, 2,6,23)));
+    }
+
+    .theme-btn-primary:focus {
+        --tw-ring-color: rgb(var(--theme-accent-rgb, 37,99,235) / 0.35);
+    }
+
+    .theme-btn-secondary {
+        @apply inline-flex items-center justify-center rounded-xl border px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-theme-bg disabled:cursor-not-allowed disabled:opacity-60;
+        border-color: rgb(var(--theme-border-rgb, 156,163,175));
+        background-color: color-mix(in srgb, rgb(var(--theme-surface-rgb, 248,250,252)) 90%, rgb(var(--theme-bg-rgb, 255,255,255)));
+        color: rgb(var(--theme-text-primary-rgb, 17,24,39));
+    }
+
+    .theme-btn-secondary:hover {
+        background-color: color-mix(in srgb, rgb(var(--theme-border-rgb, 156,163,175)) 18%, rgb(var(--theme-surface-rgb, 248,250,252)));
+    }
+
+    .theme-btn-secondary:focus {
+        --tw-ring-color: rgb(var(--theme-accent-rgb, 37,99,235) / 0.25);
+    }
+
+    .theme-btn-danger {
+        @apply inline-flex items-center justify-center rounded-xl border px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-theme-bg disabled:cursor-not-allowed disabled:opacity-60;
+        border-color: rgb(var(--theme-danger-rgb, 185,28,28) / 0.65);
+        background-color: color-mix(in srgb, rgb(var(--theme-danger-rgb, 185,28,28)) 12%, rgb(var(--theme-surface-rgb, 248,250,252)));
+        color: rgb(var(--theme-danger-rgb, 185,28,28));
+    }
+
+    .theme-btn-danger:hover {
+        background-color: color-mix(in srgb, rgb(var(--theme-danger-rgb, 185,28,28)) 18%, rgb(var(--theme-surface-rgb, 248,250,252)));
+    }
+
+    .theme-btn-danger:focus {
+        --tw-ring-color: rgb(var(--theme-danger-rgb, 185,28,28) / 0.25);
+    }
+
+    .theme-pill {
+        @apply inline-flex items-center rounded-full border border-theme-border bg-theme-bg px-3 py-1 text-xs font-semibold uppercase tracking-wide;
+        color: rgb(var(--theme-text-secondary-rgb, 75,85,99));
+    }
+
+    .theme-badge-accent {
+        @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold;
+        background-color: color-mix(in srgb, rgb(var(--theme-accent-rgb, 37,99,235)) 78%, rgb(var(--theme-overlay-rgb, 2,6,23)));
+        color: rgb(var(--theme-accent-contrast-rgb, 255,255,255));
+    }
+
+    .theme-badge-success {
+        @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold text-theme-success;
+        background-color: color-mix(in srgb, rgb(var(--theme-success-rgb, 21,128,61)) 14%, rgb(var(--theme-surface-rgb, 248,250,252)));
+    }
+
+    .theme-badge-danger {
+        @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold text-theme-danger;
+        background-color: color-mix(in srgb, rgb(var(--theme-danger-rgb, 185,28,28)) 14%, rgb(var(--theme-surface-rgb, 248,250,252)));
+    }
+
+    .theme-nav {
+        @apply border-b border-theme-border backdrop-blur;
+        background-color: color-mix(in srgb, rgb(var(--theme-surface-rgb, 248,250,252)) 92%, rgb(var(--theme-bg-rgb, 255,255,255)));
+    }
+
+    .theme-modal-scrim {
+        background-color: rgb(var(--theme-overlay-rgb, 2,6,23) / 0.72);
+    }
+}
